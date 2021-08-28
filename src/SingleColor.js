@@ -11,23 +11,21 @@ const SingleColor = ({ rgb, weight, index, hexColor }) => {
         const timeout = setTimeout(() => {
             setAlert(false);
         }, 3000);
-        return () => {
-            clearTimeout(timeout);
-        };
+        return () => clearTimeout(timeout);
     }, [alert]);
 
     return (
         <article
             className={`color ${index > 10 && "color-light"}`}
-            style={{ backgroundColor: `rbg(${bcg})` }}
-            onCLick={() => {
+            style={{ backgroundColor: `rgb(${bcg})` }}
+            onClick={() => {
                 setAlert(true);
                 navigator.clipboard.writeText(hexValue);
             }}
         >
             <p className="percent-value">{weight}%</p>
             <p className="color-value">{hexValue}</p>
-            {alert && <p className="alert">Copied to Clipboard</p>}
+            {alert && <p className="alert">copied to clipboard</p>}
         </article>
     );
 };
