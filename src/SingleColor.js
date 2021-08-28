@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import rgbToHex from "./utils.jsx";
+import rgbToHex from "./utils";
 
 const SingleColor = ({ rgb, weight, index, hexColor }) => {
     const [alert, setAlert] = useState(false);
@@ -22,7 +22,7 @@ const SingleColor = ({ rgb, weight, index, hexColor }) => {
             style={{ backgroundColor: `rbg(${bcg})` }}
             onCLick={() => {
                 setAlert(true);
-                navigator.clipboard.writeText({ hexValue });
+                navigator.clipboard.writeText(hexValue);
             }}
         >
             <p className="percent-value">{weight}%</p>
